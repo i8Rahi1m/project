@@ -1,0 +1,136 @@
+.movies-swiper-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    height: 600px;
+    margin-bottom: -100px;
+}
+
+.movies-swiper-wrapper {
+    max-width: 1170px;
+    width: 89.6%;
+    margin-left: 10px;
+}
+
+.movies-swiper-title {
+    font-size: 1.5rem;
+    margin-top: 80px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 20px;
+}
+
+.movies-swiper-card {
+    position: relative;
+    text-align: center;
+    width: 95%;
+    padding: 6px;
+    height: 390px;
+    padding-bottom: 120px;
+    border-radius: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.movies-swiper-card.dark-mode{
+    background-color: #000000;
+}
+
+.movies-swiper-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: #00000034;
+    backdrop-filter: blur(5px);
+}
+.swiper-pagination{
+    display: none;
+}
+.movies-swiper-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    object-fit: cover;
+}
+.movies-swiper-movie-title.dark-mode {
+    color: #f0f0f0;
+}
+.movies-swiper-movie-title {
+    font-size: 0.925rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: transparent;
+    transition: color 0.3s ease;
+}
+
+.movies-swiper-genre {
+    font-size: 0.875rem;
+    color: transparent;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.movies-swiper-card:hover .movies-swiper-movie-title {
+    color: rgb(255, 183, 49);
+}
+
+.movies-swiper-card:hover .movies-swiper-genre {
+    color: #ffbf00;
+}
+.movies-swiper-card:hover .movies-swiper-rating {
+    zoom: 0.9;
+}
+.movies-swiper-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    zoom: 0.0001;
+    transition: 0.3s ease;
+}
+
+.movies-swiper-rating-text {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.movies-swiper-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+}
+
+.movies-swiper-card:hover .movies-swiper-overlay {
+    opacity: 1;
+}
+.svi-slide{
+    height: 450px;
+}
+@media (min-width: 1400px){
+    .movies-swiper-card{
+        zoom: 0.8;
+    }.movies-swiper-container {
+        margin-bottom: -170px;
+    }
+}
+@media (max-width: 550px){
+    .movies-swiper-card{
+        zoom: 0.8;
+    }
+}
+    @media (max-width: 450px){
+    .movies-swiper-card{
+        zoom: 0.57;
+    }
+    .svi-slide{
+        height: 300px;
+    }
+    .movies-swiper-container{
+        height: 420px;
+    }
+}

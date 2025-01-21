@@ -1,0 +1,14 @@
+{
+    "movies": "Фильмы",
+    "cartoons": "Мультфильмы",
+    "tops": "ТОПы",
+    "users": "Пользователям",
+    "newOnSite": "Новое на сайте",
+    "loginSucceeded": "Вход выполнен успешно",
+    "youLoggedIn": "Вы вошли",
+    "logout": "Нажмите, чтобы выйти",
+    "category": "Категория",
+    "topByKinopoisk": "ТОП по Кинопоиску",
+    "topByIMDB": "ТОП по IMDB"
+  }
+  

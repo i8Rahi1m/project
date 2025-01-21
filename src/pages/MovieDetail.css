@@ -1,0 +1,363 @@
+.movie-detail-container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.movie-detail-header {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.363), rgba(235, 235, 235, 0.9)), url('https://your-background-url.com/background.jpg') no-repeat center center;
+  background-size: cover;
+  color: black;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  width: 85%;
+  margin: auto;
+  transition: background-color 2.3s ease, color 0.7s ease;
+  max-width: 1260px;
+  backdrop-filter: blur(6px);
+}
+.movie-detail-header.dark-mode{
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('https://your-background-url.com/background.jpg') no-repeat center center;
+  color: #fff;
+  box-shadow: 0px 0px 20px 0px rgb(7, 7, 7);
+
+}
+
+.meteorDiv.dark-mode{
+  display: inline;
+}
+
+.meteorDiv{
+  display: none;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.header-left {
+  flex: 1;
+  margin-left: -20px;
+}
+
+.movie-poster {
+  width: 250px;
+  height: 375px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.header-right {
+  flex: 2;
+  margin-left: 20px;
+}
+
+.movie-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.movie-info {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.movie-info span {
+  margin-right: 10px;
+}
+
+.movie-rating {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.rating-value {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffdc50;
+}
+
+.reaction-button{
+  color: #0e0e0e;
+}
+.reaction-button.dark-mode{
+  color: white;
+}
+
+.play-button {
+  background-color: #ff3b41;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  margin-top: -30px;
+}
+
+.play-button:hover{
+  background-color: rgb(232, 216, 216);
+  color: #000000;
+}
+
+.play-button svg {
+  margin-right: 5px;
+}
+
+.tabs {
+  background-color: #000000;
+    padding: 10px;
+    margin-top: 15px;
+    position: relative; /* Make sure the container is positioned relative */
+  }
+  
+  .tabs ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    position: relative; /* Ensure the list is positioned relative */
+  }
+  
+  .tabs li {
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    position: relative; /* Ensure the list item is positioned relative */
+  }
+  
+  .tabs li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2.5px;
+    background: #ee171e; /* Active tab border color */
+    transition: width 0.3s ease; /* Smooth transition for the border */
+  }
+  
+  .tabs li.active::after {
+    width: 100%;
+  }
+  
+  .tabs .active {
+    color: #f32d34;
+  }
+  
+.movie-description {
+  padding: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+  background-color: rgb(210, 210, 210);
+  margin: auto;
+  margin-top: 15px;
+  color: rgb(0, 0, 0);
+  width: 85%;
+  border-radius: 20px;
+  max-width: 1260px;
+  transition: background-color 0.0s ease, color 0.7s ease;
+}
+
+.movie-description.dark-mode{
+  color: white;
+  background: black;
+  box-shadow: 0px 0px 20px 0px rgb(7, 7, 7);
+}
+.movie-description h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  
+}
+/* Cast & Crew Section */
+.cast-crew-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.actor {
+  text-align: center;
+  flex: 1 1 calc(25% - 40px); /* Adjust percentage for responsive layout */
+/* Slightly transparent background for contrast */
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #000000;
+  width: 100px;
+}
+
+.actor:hover{
+  background-color: rgba(126, 126, 126, 0.623);
+  border-radius: 10px;
+}
+
+.actor img {
+  width: 100px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+.actor h3 {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #000000;
+}
+.kl{
+  font-weight: 550;
+  color: #000000;
+  text-decoration: none;
+}
+.kl.dark-mode{
+  font-weight: 550;
+  color: #fdfdfd;
+}
+.kl:hover{ 
+  text-decoration: underline;
+}
+.toggle-containr {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffeb3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s ease;
+}
+
+.toggl {
+  position: absolute;
+  right: 20px;
+  top: 16px;
+  zoom: 1.5;
+  font-size: 24px;
+  color: #dadada;
+  transition: transform 0.5s ease;
+  z-index: 10;
+}
+
+.toggl-dark {
+  background-color: #ffeb3b;
+  transform: rotate(360deg);
+}
+
+.dark-mode .toggl-container {
+  background-color: #fbc02d;
+}
+
+.dark-mode .toggl {
+  color: #fbc02d;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .movie-detail-header,
+  .movie-description {
+    width: 95%;
+    margin: 2.5%;
+    padding: 15px; 
+  }
+  .header-left img{
+    width: 230px;
+    height: 320px;
+    margin: auto;
+    margin-left: 20px;
+  }
+  .icnn{
+    zoom: 1.5;
+  }
+  .toggl{
+    top: 27px;
+  }
+  .home-containr{
+    width: 100%;
+    margin: 0;
+  }
+  .meteorDiv{
+    display: none;
+  }
+  .header-right {
+    margin-left: 10px;
+  }
+
+  .movie-poster {
+    width: 150px;
+    height: 225px;
+  }
+
+  .movie-title {
+    font-size: 28px;
+  }
+
+  .movie-info,
+  .movie-rating {
+    font-size: 16px;
+  }
+
+  .rating-value {
+    font-size: 36px;
+  }
+
+  .play-button {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  .header-content{
+    flex-direction: column;
+    justify-content: center;
+  }
+  body{
+    font-size: 13px;
+  }
+  .trailrr{
+    height: 380px;
+  }
+}
+@media (max-width: 768px) {
+  .tabs ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabs li {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+  .cast-crew-list {
+      margin: 5px;
+  }
+
+  .actor {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .actor img {
+    width: 80px;
+    height: 120px;
+  }
+  .trailrr{
+    height: 180px;
+  }
+}
