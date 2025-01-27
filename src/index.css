@@ -1,5 +1,5 @@
 .fullscreen-background{
-    background-image: url("C:\Users\hamda\Desktop\Sinima TJ latest-version\project\src\img\red-background-high-quality-free-photo.jpg");
+    background-image: url("C:\Users\hamda\Desktop\Sinima TJ latest-version\project\public\img\red-background-high-quality-free-photo.jpg");
     position: fixed;
     top: 0;
     left: 0;
@@ -18,7 +18,7 @@
     z-index: 1;
 }
 .end-background {
-    background-image: url("C:\Users\hamda\Desktop\Sinima TJ latest-version\project\src\img\DALL·E 2024-11-07 15.40.13 - A simple, dark cinematic background inspired by streaming platforms. The background should be minimalistic with dark gradients and slight hints of red.webp");
+    background-image: url("C:\Users\hamda\Desktop\Sinima TJ latest-version\project\public\img\DALL·E 2024-11-07 15.40.13 - A simple, dark cinematic background inspired by streaming platforms. The background should be minimalistic with dark gradients and slight hints of red.webp");
     position: absolute;
     bottom: 0;
     left: 0;
@@ -29,7 +29,7 @@
     background-position: center;
 }
 .start-background {
-    background-image: url("C:\Users\hamda\Desktop\Sinima TJ latest-version\project\src\img\DALL·E 2024-11-17 19.31.02 - A cosmic space background designed in a cinematic style, inspired by streaming platforms. The scene features a dark starry sky with a blend of deep pu.webp");
+    background-image: url("C:\Users\hamda\Desktop\Sinima TJ latest-version\project\public\img\DALL·E 2024-11-17 19.31.02 - A cosmic space background designed in a cinematic style, inspired by streaming platforms. The scene features a dark starry sky with a blend of deep pu.webp");
     position: absolute;
     top: 0;
     left: 0;

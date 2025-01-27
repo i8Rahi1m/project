@@ -1,0 +1,13 @@
+.movieName{
+    text-decoration: none;
+    width: fit-content;
+    color: #fd363c;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 30px;
+    font-family: sans-serif;
+    transition: 0.35s;
+}
+.movieName:hover{
+    color: rgba(128, 128, 128, 0.45);
+}

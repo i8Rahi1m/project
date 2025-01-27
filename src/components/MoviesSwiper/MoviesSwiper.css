@@ -3,7 +3,6 @@
     justify-content: center;
     padding: 40px 0;
     height: 600px;
-    margin-bottom: -100px;
 }
 
 .movies-swiper-wrapper {
@@ -29,8 +28,7 @@
     text-align: center;
     width: 95%;
     padding: 6px;
-    height: 390px;
-    padding-bottom: 120px;
+    height: 400px;
     border-radius: 15px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -109,7 +107,7 @@
     opacity: 1;
 }
 .svi-slide{
-    height: 450px;
+    height: 350px;
 }
 @media (min-width: 1400px){
     .movies-swiper-card{

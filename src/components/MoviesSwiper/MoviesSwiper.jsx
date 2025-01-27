@@ -89,7 +89,7 @@ const MoviesSwiper = () => {
                     }}
                     modules={[Autoplay, FreeMode]}
                 >
-                    {data.slice(-9).map((el) => (
+                    {data.slice(0, 10).map((el) => (
                         <SwiperSlide className='svi-slide' onClick={() => handlePlayClick(el.id)}  key={el.id}>
                                 <div className={`movies-swiper-card ${darkMode ? 'dark-mode' : ''}`}>
                                     <img

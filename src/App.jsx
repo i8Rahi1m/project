@@ -3,17 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store, { injectReducer } from './utils/store';
 import './index.css';
-
-const Home = React.lazy(() => import('./pages/home'));
-const Login = React.lazy(() => import('./pages/login'));
-const Category = React.lazy(() => import('./pages/CategoryPage'));
-const MovieDetail = React.lazy(() => import('./pages/MovieDetail'));
-const Auth = React.lazy(() => import('./pages/login'));
-const SearchPage = React.lazy(() => import('./pages/SearchPage'));
-const Favorites = React.lazy(() => import('./pages/Favorites'));
-const Player = React.lazy(() => import('./pages/player'));
-const AdminPage = React.lazy(() => import('./pages/admin'));
-const TopPage = React.lazy(() => import('./pages/TopPage'));
+import { Login, Home, Category, MovieDetail, Auth, SearchPage, Favorites, Player, AdminPage, TopPage} from './routes/routes';
+import Layout from './components/Layout';
 
 const App = () => {
   useEffect(() => {
@@ -26,7 +17,7 @@ const App = () => {
     {
       path: '/login',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
           <Login />
         </React.Suspense>
       ),
@@ -34,31 +25,37 @@ const App = () => {
     {
       path: '/',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
-          <Home />
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
+          <Layout>
+            <Home />
+          </Layout>
         </React.Suspense>
       ),
     },
     {
       path: '/category/:categoryId/:sortType?',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
-          <Category />
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
+          <Layout>
+            <Category />
+          </Layout>
         </React.Suspense>
       ),
     },
     {
       path: '/movie/:id',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
-          <MovieDetail />
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
+          <Layout>
+            <MovieDetail />
+          </Layout>
         </React.Suspense>
       ),
     },
     {
       path: '/auth',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
           <Auth />
         </React.Suspense>
       ),
@@ -66,23 +63,27 @@ const App = () => {
     {
       path: '/search',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
-          <SearchPage />
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
+          <Layout>
+            <SearchPage />
+          </Layout>
         </React.Suspense>
       ),
     },
     {
       path: '/favorites',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
-          <Favorites />
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
+          <Layout>
+            <Favorites />
+          </Layout>
         </React.Suspense>
       ),
     },
     {
       path: '/player/:id',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
           <Player />
         </React.Suspense>
       ),
@@ -90,7 +91,7 @@ const App = () => {
     {
       path: '/adminSPage',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
           <AdminPage />
         </React.Suspense>
       ),
@@ -98,8 +99,10 @@ const App = () => {
     {
       path: '/top',
       element: (
-        <React.Suspense fallback={<div className='load'>Loading...</div>}>
-          <TopPage />
+        <React.Suspense fallback={<div className="load">Loading...</div>}>
+          <Layout>
+            <TopPage />
+          </Layout>
         </React.Suspense>
       ),
     },

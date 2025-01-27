@@ -6,9 +6,11 @@ import SearchComponent from '../searchComponent/searchComponent';
 import { useNavigate, useParams } from 'react-router-dom';
 import AOS from "aos";
 import axios from 'axios';
+import { fetchAllMovies, fetchCategories } from '../../api/moviesApi';
+
 const NavBar = () => {
   const [isFixed, setIsFixed] = useState(false);
-  const { categoryId, sortType } = useParams(); // Get the category ID and sort type from the URL
+  const { categoryId, sortType } = useParams();
   const [data, setData] = useState([]);
   const [categories, setCategories] = useState([]);    
   const [categoryName, setCategoryName] = useState('');
@@ -34,29 +36,29 @@ const NavBar = () => {
 });
   async function getData() {
     try {
-        const response = await axios.get('http://localhost:3000/Movies');
-        const categoriesResponse = await axios.get('http://localhost:3000/Category');
-        setData(response.data);
-        setFilteredData(response.data);
-        setCategories(categoriesResponse.data);
+        const response = await fetchAllMovies();
+        const categoriesResponse = await fetchCategories();
+        setData(response);
+        setFilteredData(response);
+        setCategories(categoriesResponse);
         let index = parseInt(localStorage.getItem('currentMovieIndex'), 10);
-        if (isNaN(index) || index >= response.data.length) {
+        if (isNaN(index) || index >= response.length) {
             index = 0;
         }
-        localStorage.setItem('currentMovieIndex', (index + 1) % response.data.length);
+        localStorage.setItem('currentMovieIndex', (index + 1) % response.length);
     } catch (error) {
         console.error(error);
     }
 }
 const handleMouseEnter = () => {
 if (!stuckCmovie) {
-  setCmovie(true);  // Open the div when hovering the button
+  setCmovie(true);
 }
 };
 
 const handleMouseLeave = () => {
 if (!stuckCmovie) {
-  setCmovie(false);  // Close the div if it's not stuck
+  setCmovie(false);
 }
 };
 
@@ -66,12 +68,12 @@ setCmovie(!stuckCmovie);
 };
 
 const handleMouseEnter2 = () => {
-setCtop(true);  // Open the div when hovering the button
+setCtop(true);
 };
 
 const handleMouseLeave2 = () => {
 if (!stuckCtop) {
-  setCtop(false);  // Close the div if it's not stuck
+  setCtop(false);
 }
 };
 
@@ -81,11 +83,11 @@ setCtop(!stuckCtop);
 };
 
 const handleMouseEnter3 = () => {
-setClog(true);  // Open the div when hovering the button
+setClog(true);
 };
 
 const handleMouseLeave3 = () => {
-  setCtop(false);  // Close the div if it's not stuck
+  setCtop(false);
 };
 const handleClickOutside = (event) => {
 if (
@@ -108,16 +110,9 @@ if (
 }
 };
 
-/////////////////////////////////////////////////////////////////////////////
-
-
 const handleCategoryClick = (categoryId, sortType = null) => {
 const path = sortType ? `/category/${categoryId}/${sortType}` : `/category/${categoryId}`;
 navigate(path);
-};
-
-const handlePlayClick = (movieId) => {
-navigate(`/movie/${movieId}`);
 };
 
 const handleSearch = (query) => {
@@ -131,10 +126,6 @@ return () => {
 };
 }, []);
 
-useEffect(() => {
-const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-setFavorites(storedFavorites);
-}, []);
 
 useEffect(() => {
 const storedUserName = sessionStorage.getItem('userName');
@@ -161,37 +152,37 @@ AOS.refresh();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 95) {
-        setIsFixed(true); // Set navbar to fixed when scrolling past 80px
+        setIsFixed(true);
       } else {
-        setIsFixed(false); // Revert to original position
+        setIsFixed(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll); // Cleanup the event listener
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 95) {
-        setIsFixed(true); // Set navbar to fixed when scrolling past 80px
+        setIsFixed(true);
       } else {
-        setIsFixed(false); // Revert to original position
+        setIsFixed(false);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll); // Cleanup the event listener
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
   const toggleDarkMode = () => {
     setDarkMode(prevMode => {
         const newMode = !prevMode;
-        localStorage.setItem('darkMode', newMode); // Save to local storage
+        localStorage.setItem('darkMode', newMode);
         return newMode;
     });
 };
@@ -218,8 +209,8 @@ AOS.refresh();
                               ))}
                           </div>
                       )}</div>
-        <li><a href="#">СЕРИАЛЫ</a></li>
-        <li><a href="#">МУЛЬТФИЛЬМЫ</a></li>
+        <li><a href="/category/25">СЕРИАЛЫ</a></li>
+        <li><a href="/category/6">МУЛЬТФИЛЬМЫ</a></li>
         <li><a href="#"> ТОП 100</a></li>
         <li><a href="#">ДРУГОЕ</a></li>
       </ul>
@@ -243,8 +234,7 @@ AOS.refresh();
                     </>)}
                 </div>
             )}
-
-{(clog || stuckClog) && (
+          {(clog || stuckClog) && (
                 <div
                     style={{ height: '135px', width: '170px', left: '80%', backgroundColor: 'rgba(0, 0, 0, 0.696)', backdropFilter: 'blur(4px)', color: 'white', paddingLeft: '15px', paddingTop: '5px'}}
                     ref={clogDivRef}
@@ -260,9 +250,7 @@ AOS.refresh();
                     <p style={{marginTop: '5px'}}>You logged in</p>
                     <button onClick={()=>{ destroyToken(), navigate('/')}} style={{marginTop: '10px', backgroundColor: 'white', color: '#05041c', borderRadius: '10px', padding: '5px', width: 'fit-content', paddingLeft: '10px', paddingRight: '10px', marginLeft: '-5px'}}>Click to log out</button> 
                 </div>
-            )}
-
-            
+            )}  
     </div>
   );
 };
